@@ -1,14 +1,11 @@
-import os
-from dotenv import load_dotenv
 from InternetSpeed import InternetSpeed
-import time
-
-# user = LinkedIn(url="https://www.linkedin.com/jobs/search/?currentJobId=3602007740&f_AL=true&geoId=102007122&keywords=python%20developer&location=Cairo%2C%20Egypt&refresh=true")
-
-
-# user.signin()
-# job_list = user.get_jobs_list()
+from Twitter import Twitter
 
 internet_reading = InternetSpeed()
 readings = internet_reading.getSpeedReadings()
 print(readings)
+
+user = Twitter()
+user.sign_in()
+
+user.check_for_internet_speed_and_make_a_complaint_if_low_down_or_up(readings_of_internet_speed_test=readings)
